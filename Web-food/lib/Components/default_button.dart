@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../constant.dart';
 
-
 class DefaultButton extends StatelessWidget {
   final String text;
-  final VoidCallback press; // Use VoidCallback instead of Function
-
+  final Function press;
   const DefaultButton({
     Key? key,
     required this.text,
@@ -17,12 +15,10 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
-      child: TextButton( // Replace FlatButton with TextButton
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-          backgroundColor: kPrimaryColor,
-        ),
-        onPressed: press,
+      child: MaterialButton(
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+        color: kPrimaryColor,
+        onPressed: () => press (),
         child: Text(
           text.toUpperCase(),
         ),

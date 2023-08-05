@@ -4,7 +4,7 @@ import '../../../constant.dart';
 
 class MenuItem extends StatelessWidget {
   final String title;
-  final VoidCallback? press; // Specify the correct type here
+  final Function press;
   const MenuItem({
     Key? key,
     required this.title,
@@ -14,7 +14,7 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: press,
+      onTap: () => press(),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Text(
